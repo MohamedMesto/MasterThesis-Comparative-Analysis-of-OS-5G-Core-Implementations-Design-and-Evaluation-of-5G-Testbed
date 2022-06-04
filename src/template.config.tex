@@ -1,0 +1,147 @@
+% bugfixes ---------------------------------------------------------------------
+%\let\accentvec\vec%               % llncs with amsmath bugfix
+\RequirePackage{amsmath}           % llncs with amsmath bugfix
+% ------------------------------------------------------------------------------
+
+
+% docuemnt class ---------------------------------------------------------------
+\documentclass[
+        a4paper,                % use a5paper for ISO A5; use a4paper for ISO A4
+%        pdftex,                 % PDF output
+%        ngerman,                % Support for German
+        10pt,                   % font size
+ %conference,             % enable for IEEE style
+ %romanappendices,        % enable for IEEE style
+ runningheads,           % enable for LLNCS style
+%]{IEEEtran} % enable for IEEE style
+]{llncs} % enable for LLNCS style
+% ------------------------------------------------------------------------------
+
+% bugfixes ---------------------------------------------------------------------
+%\let\spvec\vec                   % llncs with amsmath bugfix
+%\let\vec\accentvec               % llncs with amsmath bugfix
+% ------------------------------------------------------------------------------
+
+% disable commands -------------------------------------------------------------
+\makeatletter
+\newcommand{\dontusepackage}[2][]{%
+  \@namedef{ver@#2.sty}{9999/12/31}%
+  \@namedef{opt@#2.sty}{#1}}
+\makeatother
+
+%to avoid warnings with llncs + tocstyle ("dottedtocline" issue)
+\dontusepackage[tocindentauto]{tocstyle}
+\newcommand{\usetocstyle}[1]{}
+\newcommand{\settocstylefeature}[2]{}
+
+%to avoid warnings with caption and unknown document classes
+\usepackage{silence}
+\WarningFilter{caption}{Unknown document class}
+% ------------------------------------------------------------------------------
+
+% basic config -----------------------------------------------------------------
+\input{lib/resources/config/default}
+%\usepackage[ngerman]{babel}                         % Support for German
+%\usepackage[babel,autostyle=true,german=quotes]{csquotes} % Support for German
+\usepackage{float}                % Provides the H float modifier option
+%\usepackage{cite}                % Cite references %%for bibtex
+\usepackage[backend=biber,
+  style=numeric-comp,%ieee,%numeric-comp
+  maxnames=3,
+  maxcitenames=3,
+  maxbibnames=3,
+  doi=false,
+  isbn=false,
+  url=false,
+  %dashed=false
+  ]{biblatex}
+%\renewbibmacro*{bbx:savehash}{}  % to enabled the "dashed=false" option in ieee
+\addbibresource{template.bib}
+\IfFileExists{global-do-not-edit.bib}{\addbibresource{global-do-not-edit.bib}}{}
+% ------------------------------------------------------------------------------
+
+
+% acronyms ---------------------------------------------------------------------
+\usepackage{acro}
+%% uncomment if you use a list of acronyms
+%% (note: you might need a recent version of this package)
+%\DeclareAcroPageStyle{dotfill}{inline}{
+%  punct = true,
+%  punct-symbol = \linebreak[1]\null\dotfill\nobreak%
+%}
+%\acsetup{
+%            single=false,
+%            sort=true,
+%            list-style=longtable,
+%            page-style=dotfill, % or =plain
+%            index, %  migh result in 'pdfTeX warning (dest): name... has been referenced but does not exist, replaced by a fixed one'
+%            pages=first,
+%            page-name={},
+%            pages-name={},
+%}
+\robustify\footnote%
+\robustify\url%
+
+\makeatletter\newif\ifnewacro%
+\@ifpackagelater{acro}{2015/08/15}{% version 2.0 or later
+\setboolean{newacro}{true}
+}{% else hide footnotes and citations
+\setboolean{newacro}{false}
+\typeout{warning: your acro package is too old (<2.0)}
+}%
+\makeatother
+% ------------------------------------------------------------------------------
+
+
+% hyperlinks (last package) ----------------------------------------------------
+\usepackage{hyperxmp}                 % Semantic meta data (RDF/XMP)
+\makeatletter
+\@ifpackageloaded{tex4ht}{\usepackage[tex4ht]{hyperref}}{
+\usepackage[pdftex,                   % Hyperlinks in PDFs
+pdfa=true,                            % PDF/A compatbility (fix hyperlink with ghostscript)
+pdfapart=1,                           % PDF/A compatbility
+unicode=true,                         % PDF/A compatbility
+raiselinks=true,			          % calculate real height of the link
+breaklinks,                           % break links
+%backref=page,                         % backlinks in bibliography (section, slide, page, none)
+%pagebackref=true,                     % backlinks in bibliography
+hyperindex=true,                      % backlinkex index
+linktocpage=true,                     % ToC links pages
+bookmarks=true,                       % Bookmarks for PDF viewers
+bookmarksopen=true,                   % Open bookmarks
+bookmarksopenlevel=1,                 % How many levels to open
+bookmarksnumbered=true,               % Numbers in the bookmarks
+bookmarkstype=toc,                    % Type of bookmark
+plainpages=false,                     % Anchors even on plain pages?
+pageanchor=true,                      % Pages are linkable
+pdfstartview=FitH,                    % Open document with Fit Width
+pdfpagelabels=true,                   % set PDF page labels
+pdfpagemode=UseOutlines,              % Show bookmarks in viewer
+colorlinks,                           % Show colored links
+linkcolor=LinkColor,                  % Link color
+urlcolor=LinkColor,                   % URL color
+anchorcolor=LinkColor,                % Anchor color
+citecolor=LinkColor,                  % Cite color
+menucolor=LinkColor,                  % Menu color
+hypertexnames=true,                   % Whatever ;)
+pdfencoding=auto,
+%draft,                                % Disable hyperlinks for IEEEtran / EDAS
+]{hyperref}                           % Use hyperlinks
+\usepackage{bookmark}                 % Manually add PDF bookmarks
+\hypersetup{keeppdfinfo}              % fix for hyperxmp, however, breaks PDF/A compliance
+%\renewcommand*{\backref}[1]{[cited at page #1]} % Show formatted backlinks
+%\renewcommand{\url}[1]{#1}           % Disable hyperlinks for IEEEtran / EDAS
+%\usepackage{nohyperref}              % Disable hyperlinks for IEEEtran / EDAS
+%\renewcommand*{\todo}[1]{}            % For submission
+%\renewcommand*{\todotext}[1]{}        % For submission
+%\renewcommand*{\sidenote}[1]{}        % For submission
+}
+\makeatother
+\usepackage{cleveref}                 % To ref footnotes twice (use after hyperref)
+% ------------------------------------------------------------------------------
+
+% meta data --------------------------------------------------------------------
+\input{template.meta}
+\input{lib/resources/config/pdfmetadata}
+% ------------------------------------------------------------------------------
+

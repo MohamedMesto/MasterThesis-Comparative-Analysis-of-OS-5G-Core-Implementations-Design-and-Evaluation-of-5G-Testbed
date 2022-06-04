@@ -1,0 +1,134 @@
+
+% core meta data --------------------------------------------------------------------
+\newcommand{\metaTitle}{Comparative Analysis of Open Source 5G Core Implementations and Design and Evaluation of a 5G Testbed for Industrial Communication\texorpdfstring{\\}{ } Master’s Thesis 
+shortened Draft}
+\newcommand{\metaTitleShort}{integration of TSN in an Open Source 5GC testbed}
+\newcommand{\metaSubject}{Conference Name} 
+\newcommand{\metaKeywords}{3GPP, Architecture, Open 5G core System, NextGen, Time-Sensitive Networking (TSN), Free5GC, NSA, SA, 5GC, SBA, Smart Factories}
+  
+\newcommand{\metaInstFirst}{Technical University Berlin, Berlin, Germany,\\Department of Telecommunication Systems Next Generation Networks
+Architekturen der Vermittlungsknoten (AV)
+Betreuer: \break \textbf{ Prof. Dr.  } ,\break
+Gutachter: Prof. Dr.-Ing. \break 
+Dr.-Ing.   \break \break
+
+}
+
+\newcommand{\metaAuthorFirst}{vorgelegt von \break
+ Mohamed Mesto, MCs TU Berlin}
+\newcommand{\metaMailFirst}{M.mesto@campus.tu-berlin.de
+\break
+Matrikelnummer:*****
+}
+
+
+
+% ------------------------------------------------------------------------------
+
+% /* include config --------------------------------------------------------- */
+\input{template.config.tex}
+\input{template.acro.tex} % acro package
+\IfFileExists{global-do-not-edit.acro.tex}{\input{global-do-not-edit.acro.tex}}{} % chktex 27
+\AtBeginDocument{\let\textlabel\label}
+
+
+% IEEE copyright ---------------------------------------------------------------
+
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+%To get the bibliography to be listed in the ToC as an unnumbered sectional unit (chapter or section), use tocbibind without the numbib option:
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{xcolor}
+%for colors
+\usepackage{biblatex} %enable for bibtex%
+%mmm
+\usepackage[english]{babel}
+\usepackage{minted}
+\usepackage{fancyvrb}
+\usepackage{listings}
+%for code commands in latex
+
+
+%\usepackage[dvipsnames]{xcolor}
+%mmm
+
+
+
+\bibliography{template.bib}
+\usepackage{comment}
+ 
+ 
+ 
+ 
+ 
+%\usepackage[pscoord]{eso-pic}
+%\newcommand{\ieeecopyright}[3]{
+%  \setbox0=\hbox{#3}
+%  \AddAVToShipoutPictureFG*{ \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}}
+%}
+%\ieeecopyright{.2}{0.055}{978-1-4799-1234-5/67/\$31.00~\copyright~2015~IEEE}
+% IEEE copyright ---------------------------------------------------------------
+
+% /* ------------------------------------------------------------------------ */
+
+% /* begin paper ------------------------------------------------------------ */
+\begin{document}
+    % /* acronym package ---------------------------------------------------- */
+    %\begin{acronym}
+    %    \input{template.acro.tex}
+    %\end{acronym}
+    % /* -------------------------------------------------------------------- */
+
+    % /* Meta data ---------------------------------------------------------- */
+    %\frontmatter
+    \title{\metaTitle}
+    \maketitle
+    % /* -------------------------------------------------------------------- */
+    % /* -------------------------------------------------------------------- */
+    \begin{abstract}
+    \input{src/00_abstract}
+    \end{abstract}
+
+ %\begin{IEEEkeywords}\metaKeywords\end{IEEEkeywords} % enable for IEEE style
+ \keywords{\metaKeywords} % enable for LLNCS style
+    % /* -------------------------------------------------------------------- */
+    % /* -------------------------------------------------------------------- */
+    %\mainmatter
+     
+   
+    \tableofcontents
+    %\newpage
+    \listoffigures
+    \listoftables
+    \lstlistoflistings
+    
+    
+    \input{src/01_introduction}
+    \input{src/02_relatedwork}
+    \input{src/03_approach}
+    \input{src/04_evaluation}
+    \input{src/05_conclusions}
+    \input{src/00_acknowledgements}
+    
+
+    
+    
+    
+   
+    
+    %\bibliographystyle{IEEEtran} % enable for bibtex
+    % enable for bibtex
+    \printbibliography% enable for biber style
+    % to show unreferenced publications ------------------------------------- */
+    %\bibliographystyle{unsrt}
+    %\cite{dummy}
+    %\nocite{*}
+    %------------------------------------------------------------------------ */
+
+    % /* -------------------------------------------------------------------- */
+    %\backmatter
+\end{document}
+% /* ------------------------------------------------------------------------ */
