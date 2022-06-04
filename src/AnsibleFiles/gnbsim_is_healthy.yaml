@@ -1,0 +1,9 @@
+oai-cn5g-fed/docker-compose$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                    PORTS                          NAMES
+2ad428f94fb0   gnbsim:latest                   "/gnbsim/bin/entrypo…"   33 seconds ago   Up 32 seconds (healthy)                                  gnbsim
+c25db05aa023   ubuntu:bionic                   "/bin/bash -c ' apt …"   4 minutes ago    Up 4 minutes                                             oai-ext-dn
+31b6391a3a41   oai-amf:latest                  "/bin/bash /openair-…"   4 minutes ago    Up 4 minutes (healthy)    80/tcp, 9090/tcp, 38412/sctp   oai-amf
+753ae61f715f   oai-spgwu-tiny:latest           "/openair-spgwu-tiny…"   4 minutes ago    Up 4 minutes (healthy)    2152/udp, 8805/udp             oai-spgwu
+84c164ab8136   oai-smf:latest                  "/bin/bash /openair-…"   4 minutes ago    Up 4 minutes (healthy)    80/tcp, 9090/tcp, 8805/udp     oai-smf
+6f0ce91e4efb   oai-nrf:latest                  "/bin/bash /openair-…"   4 minutes ago    Up 4 minutes (healthy)    80/tcp, 9090/tcp               oai-nrf
+565617169b42   mysql:5.7                       "docker-entrypoint.s…"   4 minutes ago    Up 4 minutes (healthy)    3306/tcp, 33060/tcp            mysql
