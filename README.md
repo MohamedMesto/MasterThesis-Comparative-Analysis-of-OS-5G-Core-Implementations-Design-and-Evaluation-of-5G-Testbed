@@ -15,20 +15,18 @@
 
   <tr>
     <td> </td>
-<td align="center"> <a href='https://www.ods.tu-berlin.de/menue/fachgebiet_open_distributed_systems/ueber_uns/team/damien_foucard/' > Master Thesis Research Topic </a>  
+<td align="center">    
   </td>
     <td> </td>
 </tr>
  
   <tr>
     <td> </td>
-<td align="center">  Supervisor <a href='https://www.linkedin.com/in/damien-foucard-0b50317a/'> Ph.D. Ing Damien Foucard </a>  
-  </td>
+<td align="center">  Supervisor Prof.Dr. Ing Th. M.  </td>
     <td> </td>
 </tr>
 </table>
 
-## In Progress
 
 ## Contributors
 - Mohamed Mesto m.mesto@campus.tu-berlin.de  , Mohamedmesto111@gmail.com
