@@ -1,3 +1,27 @@
+<table border=0>
+<tr border=0>
+<td> <img align="left"  alt="Mohamed Mesto" width="100px" height='60px' src="https://www.ods.tu-berlin.de/fileadmin/Aperto_design/img/logo_01.gif"/> </td>
+  <td align="center"> <h5><a href="https://www.fokus.fraunhofer.de/en">by Fraunhofer Institute for Open Communication Systems (Fokus) Institute.</a></h5> </td>
+  <td>  <img align="right"  alt="Mohamed Mesto" width="160px" height='60px' src="https://www.fokus.fraunhofer.de/assets/logo-860812875da0f0aa4d5ea48e795aac93b09affdb637eae121b367da604de8737.png"/></td>
+</tr>
+<tr border=0>
+<td> </td><td  align="center"><h5> Thesis Topic </h5> </td><td> </td>
+</tr>
+<tr border=0>
+<td> </td><td> </td><td> </td>
+</tr>
+  <tr>
+    <td> </td>
+<td align="center"><h5><a href="https://github.com/fraunhoferfokus">" Comparative Analysis of Open Source 5G Core Implementations and Design and Evaluation of a 5G Testbed for Industrial Communication Master’s Thesis shortened Draft"</a></h5></td>
+    <td> </td>
+</tr>
+  <tr>
+    <td> </td>  <td align="center">Supervisor Prof.Dr. Ing Th. M. </td>
+    <td> </td>
+</tr>
+</table>
+
+
 
 <table border=0 style="width:100%">
     <tr>
