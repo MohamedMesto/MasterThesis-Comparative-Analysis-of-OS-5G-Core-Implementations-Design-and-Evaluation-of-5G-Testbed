@@ -34,3 +34,6 @@
 ## License & copyright
 © Mohamed Mesto
 License under the [MIT License] (LICENSE).
+
+![](Images/5G-ThesisDraft_1.jpg)
+![](Images/5G-ThesisDraft_2.jpg)
