@@ -1,0 +1,345 @@
+% bugfixes ---------------------------------------------------------------------
+%\let\spvec\vec                   % llncs with amsmath bugfix
+%\let\vec\accentvec               % llncs with amsmath bugfix
+%\newcommand{\subparagraph}{}     % IEEETrans with titlesec bugfix
+
+%\makeatletter                    % for old listings package
+%\@ifundefined{float@listhead}{}{%
+%    \renewcommand*{\lstlistoflistings}{%
+%        \begingroup
+%            \if@twocolumn
+%                \@restonecoltrue\onecolumn
+%            \else
+%                \@restonecolfalse
+%            \fi
+%            \float@listhead{\lstlistlistingname}%
+%            \setlength{\parskip}{\z@}%
+%            \setlength{\parindent}{\z@}%
+%            \setlength{\parfillskip}{\z@ \@plus 1fil}%
+%            \@starttoc{lol}%
+%            \if@restonecol\twocolumn\fi
+%        \endgroup
+%    }%
+%}
+%\makeatother
+% ------------------------------------------------------------------------------
+
+% macro: ifpackageloaded -------------------------------------------------------
+\makeatletter
+\providecommand{\IfPackageLoaded}[2]{\@ifpackageloaded{#1}{#2}{}}
+\providecommand{\IfPackageNotLoaded}[2]{\@ifpackageloaded{#1}{}{#2}}
+\providecommand{\IfElsePackageLoaded}[3]{\@ifpackageloaded{#1}{#2}{#3}}
+\makeatother
+% ------------------------------------------------------------------------------
+
+% File encoding: Normal UTF8 ---------------------------------------------------
+\IfPackageNotLoaded{CJKutf8}{\usepackage[utf8]{inputenc}}
+\usepackage[T1]{fontenc}     % Font encoding: T1
+%\usepackage{cmap}           % Support copy and search for pdflatex
+\input{glyphtounicode}       % Support copy and search for pdflatex % chktex 27
+%\pdfgentounicode=1          % Support copy and search for pdflatex
+\makeatletter
+\def\UTFviii@defined#1{%
+  \ifx#1\relax
+      ((TODO:\@ Fix weird character here))%
+  \else\expandafter% chktex 41
+    #1%
+  \fi
+}
+\makeatother
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\usepackage{amssymb}                  % Springer Verlag (pdflatex)
+\makeatletter
+\@ifpackageloaded{url}{}{\usepackage[hyphens]{url}} % Create URLs in the document
+\makeatother
+\usepackage[
+spacing=true,                         % Fonts: spacing?
+kerning=true,
+tracking=true,                        % Fonts: hyphenatable letterspacing
+expansion=true,                       % Fonts: better grey value
+protrusion=true]{microtype}           % Fonts: margin kerning
+\microtypecontext{spacing=nonfrench}
+\usepackage{textcomp}                 % For the Euro sign
+\usepackage{booktabs}                 % Nice tables
+\usepackage{listings}                 % Nice listings
+\usepackage{listingsutf8}             % Listings with UTF-8
+\lstset{columns=fullflexible,         % Listings in multicolumn mode
+        breaklines=true,              % Listings with long lines
+        xleftmargin=3em,              % Correct indentation
+        basicstyle=\scriptsize,       % Small text
+        numbers=left,                 % Show numbers
+        stepnumber=1,                 % For each line
+        inputencoding=utf8            % Enable UTF8
+        }
+\usepackage{algorithmic}              % Nice pseudo code
+\makeatletter
+\@ifpackageloaded{tex4ht}{%
+  \usepackage[dvipdfmx]{color,graphicx}
+}{
+  \usepackage[table]{xcolor}                   % To use and define colors
+  \usepackage{subcaption}               % Subfigures
+}
+\makeatother
+\definecolor{LinkColor}{rgb}          % Link color
+{0.31,0.46,.64}                       %
+\definecolor{MarginColor}{rgb}        % Margin color
+{0.31,0.46,.64}                       %
+\usepackage{wrapfig}                  % Use floating images
+\usepackage{stfloats}                 % Makes LaTeX honour ‘[b]’ placement
+\usepackage{amsmath}                  % For eqref
+\usepackage[olditem,oldenum]{paralist}% For inline lists (options for MDPI)
+%\usepackage{fixltx2e}                 % Provides fixes for LaTeX (not needed for anymore since 2015)
+\usepackage{fix-cm}                   % Provides fixes for LaTeX
+\usepackage{rotating}                 % e.g. for the special side margin notes
+\usepackage{lipsum}                   % To add some dummy text
+\usepackage{xspace}                   % Fixing some spacing issues
+\usepackage{ellipsis}                 % Puts space around ellipses
+%\usepackage{ragged2e}                 % New commands/env. for setting ragged text
+%\usepackage{lmodern}                 % Nicer fonts (for all)
+\usepackage{ltxtable}                 % Long complex tables
+\usepackage{ltablex}                  % Long complex tables
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\makeatletter
+\@ifpackageloaded{lineno}{}{\usepackage[switch*,modulo]{lineno}}   % Show line numbers
+\makeatother
+\makeatletter
+\@ifpackageloaded{accsupp}{}{\usepackage{accsupp}} % Don't copy line numbers (see below)
+\makeatother
+\renewcommand{\thelinenumber}{        % Line number printing mechanism
+  \BeginAccSupp{ActualText={}}\arabic{linenumber}\EndAccSupp{}%
+}
+\usepackage{blindtext}                % insert blind texts
+%\usepackage{cleveref}                 % To ref footnotes twice (use after hyperref)
+%\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+\makeatletter
+\newcommand*{\etc}{%
+    \@ifnextchar{.}%
+        {etc}%
+        {etc.\@\xspace}%
+}
+\makeatother
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\cf}{cf.\@\xspace}
+
+% To be used in the project specific config file:
+%\usepackage[bf]{caption}[2008/08/24]  % Bold caption (better contrast)
+%\usepackage{acronym}                  % For acronyms
+%\usepackage[pdftex]{graphicx}         % Include images for pdflatex
+
+\hyphenation{op-tical net-works semi-conduc-tor con-cept}
+
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\newcommand{\sectionname}{Sec.}
+\newcommand{\equationname}{Eq.}
+\renewcommand{\lstlistlistingname}{List of Listings}
+
+\makeindex
+
+\setcounter{tocdepth}{3}
+\newcommand{\mykeywords}[1]{\par\addvspace\baselineskip%
+\keywordname\enspace\ignorespaces#1}
+\makeatletter
+\providecommand*{\toclevel@title}{99}
+\providecommand*{\toclevel@author}{99}
+
+\usepackage[tocindentauto]{tocstyle}      % fixing large roman page letters in ToC
+\usetocstyle{standard}                    % same layout as before
+\settocstylefeature{pagenumberbox}{\hbox} % fixing large roman page letters in ToC
+% type setting ----------------------------------------------------------------
+% no "Schusterjungen"
+    \clubpenalty=10000
+% no "Hurenkinder"
+    \widowpenalty=10000
+    \displaywidowpenalty=10000
+% type setting ----------------------------------------------------------------
+
+% annotations --------------------------------------------------------------
+\newcommand{\annot}[2][]{%
+    \pdfannot\ width \linewidth\ height 2\baselineskip\ depth 0pt{%
+        /Subtype/Text%
+        /Open false
+        /Name /Comment%
+        /CA .4%
+        /C [.3 .6 .9]%
+        /T (\pdfescapestring{#1})%            /Contents(\pdfescapestring{\detokenize{#2}})%
+    }
+}
+
+\newcommand\aclc[1]{%
+{%
+\renewcommand{\url}[1]{}%
+\renewcommand{\footnote}[1]{}%
+\renewcommand{\cite}[1]{}%
+\let\protect\relax%
+\acl*{#1}%
+}%
+}
+\newcommand\acfc[1]{%
+{%
+\renewcommand{\url}[1]{}%
+\renewcommand{\footnote}[1]{}%
+\renewcommand{\cite}[1]{}%
+\let\protect\relax%
+\acf*{#1}%
+}%
+}
+\newcommand\todoremark[1]{%
+	\color{blue}%
+	((remark: #1))
+	\color{black}%
+}
+\newcommand\todo[1]{%
+	\color{red}%
+	((todo: #1))
+	\color{black}%
+}
+\newcommand\todotext[1]{%
+    \todo{#1}%
+	\color[gray]{0.8}%
+	\blindtext[1]
+	\color{black}%
+}
+
+\newcommand\todowrite[2]{%
+  \color{red}%
+  ((write about #1))
+	\color[gray]{0.8}%
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  #2
+	\color{black}%
+}
+
+
+\newcommand\todosmall[1]{%
+    \todo{#1}%
+	\color[gray]{0.8}%
+	Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante.
+	\color{black}%
+}
+\newcommand\todoshort[1]{\todosmall{#1}}
+\newcommand\todomid[1]{%
+    \todo{#1}%
+    \color[gray]{0.8}%
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    \color{black}%
+}
+
+\usepackage{ifoddpage}                % Move notes to correct page
+\usepackage{needspace}                % Avoid hanging notes
+\usepackage{marginnote,zref-savepos}  % Non floating margin notes
+
+%for two-column layout
+\newcounter{labelnote}
+\makeatletter
+\let\oldmarginnote\marginnote%
+\renewcommand*{\marginnote}[1]{%
+ \begingroup\strut%
+  \stepcounter{labelnote}\zsaveposx{marginnote-\thelabelnote}
+     \ifnum0\zposx{marginnote-\thelabelnote}<19000000
+      \normalmarginpar%
+      \oldmarginnote{#1}%
+     \else
+      \reversemarginpar%
+      \oldmarginnote{#1}%
+     \fi
+ \endgroup%
+}
+\makeatother
+
+%\setlength{\marginparwidth}{0.7in}
+\newcommand\sidenote[1]{\mbox{}%
+  \marginnote{%
+    \scriptsize%
+    %\raggedright%
+    \hspace{0pt}%
+    \color{MarginColor}%
+    %\begin{turn}{270}%
+      \emph{#1}%
+    %\end{turn}%
+  }%
+}%
+\makeatletter
+\@ifpackageloaded{tex4ht}{\renewcommand\sidenote[1]{}}{}
+\makeatother
+
+% annotations --------------------------------------------------------------
+
+% more listings ------------------------------------------------------------
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+\lstdefinelanguage{sparql}{
+morecomment=[l][\color{black}]{\#},
+morestring=[b][\color{black}]\",
+morekeywords={SELECT,CONSTRUCT,DESCRIBE,ASK,WHERE,FROM,NAMED,PREFIX,BASE,OPTIONAL,FILTER,GRAPH,LIMIT,OFFSET,SERVICE,UNION,EXISTS,NOT,BINDINGS,MINUS,a},
+sensitive=true
+}
+\lstdefinelanguage{ttl}{
+sensitive=true,
+morecomment=[l][\color{grey}]{@},
+morecomment=[l][\color{black}]{\#},
+morestring=[b][\color{black}]\",
+}
+\definecolor{groovyblue}{rgb}{0,0,.9}
+\definecolor{groovygreen}{rgb}{0,.7,0}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+
+\lstdefinelanguage{Groovy}[]{Java}{
+  keywordstyle=\color{groovyblue}\bfseries,
+  stringstyle=\color{groovygreen}\ttfamily,
+  keywords=[3]{each, findAll, groupBy, collect, inject, eachWithIndex},
+  morekeywords={def, as, in, use},
+  moredelim=[is][\textcolor{darkgray}]{\%\%}{\%\%}, % chktex 21
+  moredelim=[il][\textcolor{darkgray}]{§§}
+}
+% more listings ------------------------------------------------------------
+
+% show the hex code of the unknown unicode character to actually find it ----
+\usepackage{stringenc}
+\usepackage{pdfescape}
+\makeatletter
+\renewcommand*{\UTFviii@defined}[1]{%
+  \ifx#1\relax
+    \begingroup
+      % Remove prefix "\u8:"
+      \def\x##1:{}%
+      % Extract Unicode char from command name
+      % (utf8.def does not support surrogates)
+      \edef\x{\expandafter\x\string#1}% chktex 41
+      \StringEncodingConvert\x\x{utf8}{utf16be}% convert to UTF-16BE
+      % Hexadecimal representation
+      \EdefEscapeHex\x\x
+      % Enhanced error message
+      \PackageError{inputenc}{Unicode\space char\space \string#1\space
+                              (U+\x)\MessageBreak%
+                              not\space set\space up\space
+                              for\space use\space with\space LaTeX}\@eha%
+    \endgroup
+  \else\expandafter% chktex 41
+    #1%
+  \fi
+}
+\makeatother
+% ---------------------------------------------------------------------------
+
+% own requirement environment --------------------------------------------------
+\makeatletter
+\newcommand\requirement[3]{%
+  \protected@write\@auxout{}{\string\CreateCounter{#1}}% chktex 21
+  \crefname{my#1}{requirement}{requirements}\Crefname{my#1}{Requirement}{Requirements} %fixme:doesn't work
+  \crefname{#1}{requirement}{requirements}\Crefname{#1}{Requirement}{Requirements} %fixme:doesn't work
+  \@ifundefined{c@my#1}
+    {#1??: #3}
+    {\refstepcounter{my#1}\label{#2}#1\arabic{my#1}: #3}%
+}
+\newcommand{\CreateCounter}[1]{%
+  \@ifundefined{c@my#1}
+    {\newcounter{my#1}\global\@namedef{themy#1}{#1\arabic{my#1}}}% chktex 21
+    {}%
+}
+\AtEndDocument{\let\CreateCounter\@gobble}% chktex 21
+\makeatother
+% ------------------------------------------------------------------------------
