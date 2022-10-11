@@ -1,0 +1,42 @@
+% existing authors list --------------------------------------------------------
+\IfFileExists{global-do-not-edit.authors.tex}{\input{global-do-not-edit.authors.tex}}{} % chktex 27
+% ------------------------------------------------------------------------------
+
+
+% authors ----------------------------------------------------------------------
+\newcommand{\metaAuthorXXX}{T. Do}
+\newcommand{\metaMailXXX}{first.last@example.org}
+\newcommand{\metaInstXXX}{University, City, Country,\\Department of XXX}
+% ------------------------------------------------------------------------------
+
+% author PDF -------------------------------------------------------------------
+\newcommand{\metaAuthorMail}{\metaMailFirst}
+\newcommand{\metaAuthorShort}{\metaAuthorFirst}
+% ------------------------------------------------------------------------------
+
+% author IEEE ------------------------------------------------------------------
+%\newcommand{\IEEEinstFirst}{\IEEEauthorblockA{\metaInstFirst}} % enable for IEEE style
+%\newcommand{\IEEEauthorFirst}{\IEEEauthorblockN{\metaAuthorFirst}\IEEEinstFirst} % enable for IEEE style
+%\newcommand{\IEEEinstXXX}{\IEEEauthorblockA{\metaInstXXX}} % enable for IEEE style
+%\newcommand{\IEEEauthorXXX}{\IEEEauthorblockN{\metaAuthorXXX}\metaInstXXX} % enable for IEEE style
+%\author{\IEEEauthorFirst~\and \IEEEauthorXXX} % enable for IEEE style
+% ------------------------------------------------------------------------------
+
+% author LLNCS -----------------------------------------------------------------
+\author{\metaAuthorFirst\inst{1} } % enable for LLNCS style
+\authorrunning{\metaAuthorFirst } % enable for LLNCS style
+\tocauthor{\metaAuthorFirst, } % enable for LLNCS style
+\institute{\metaInstFirst\\ % enable for LLNCS style
+\email{\metaMailFirst} % enable for LLNCS style
+ % enable for LLNCS style
+\\ % enable for LLNCS style
+\email{} % enable for LLNCS style
+} % enable for LLNCS style
+\titlerunning{\metaTitleShort} % enable for LLNCS style
+% ------------------------------------------------------------------------------
+
+\newcommand{\metaThanks}{Research for this paper %
+was partially financed by the XXX project %
+XXX\cite{rfc748}. We thank our project partners for their %
+contributions and their collaboration to this research work.}
+% ------------------------------------------------------------------------------
